@@ -1,0 +1,49 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+
+class categories {
+    id:int
+    neme:string
+    created_at:stirng
+}
+
+class authors {
+    id:int
+    name:string
+    created_ate:string
+    update_at_string
+}
+class books {
+    id:int
+    title:string
+    author_id:int
+    created_at:string
+    updated_at:string
+}
+class reviews {
+    id:int
+    user_id:int
+    book_id:int
+    content:string
+    created_at:int
+    updated_at:string
+}
+
+class category_book{
+    book_id:int
+    category_id:int
+}
+class users {
+    id:int
+    name:string
+    password:string
+    cretaed_at:string
+    updated_at:string
+}
+books "1" -- "1" authors : author_id
+books "1" -- "0..*" category_book : book_id
+category_book "1" -- "0..*" categories : category_id
+reviews "1" -- "1" books : book_id
+reviews "1" -- "1" users : user_id
